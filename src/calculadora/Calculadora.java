@@ -28,32 +28,35 @@ public class Calculadora {
         Scanner lector = new Scanner(System.in);
         int opcionElegida = lector.nextInt();
         
-        System.out.println("¿Cuál sería el valor para el primer operando?");
+        System.out.println("¿Cual seria el valor para el primer operando?");
         int op1 = lector.nextInt();
-        System.out.println("¿Cuál sería el valor para el segundo operando?");
+        System.out.println("¿Cual seria el valor para el segundo operando?");
         int op2 = lector.nextInt();
         
         double resultado = 0.0;
         
+        Operaciones op = new Operaciones();
+        
         switch (opcionElegida) {
             case 1:
                 //Realizar suma
-                resultado = op1 + op2;                
+                //resultado = op1 + op2;                
+                resultado = op.suma(op1, op2);
                 break;
             case 2:
                 //Realizar resta
-                resultado = op1 - op2;
+                resultado = op.resta(op1, op2);
                 break;
             case 3:
                 //Realizar multiplicacion
-                resultado = op1 * op2;
+                resultado = op.multiplica(op1, op2);
                 break;
             case 4:
                 //Realizar division
-                resultado = (double)op1 / op2;
+                resultado = op.divide(op1, op2);
                 break;
             default:
-                System.out.println("Opción no válida.");
+                System.out.println("Opcion no valida.");
         }
         return resultado;
     }
@@ -61,11 +64,11 @@ public class Calculadora {
     public static void pintarMenu(){
         System.out.println("Bienvenidos al programa");
         System.out.println("SUPER CALCULADORA");
-        System.out.println("Elija una opción:");
+        System.out.println("Elija una opcion:");
         System.out.println("1. Suma");
         System.out.println("2. Resta");
-        System.out.println("3. Multiplicación");
-        System.out.println("4. División");    
+        System.out.println("3. Multiplicacion");
+        System.out.println("4. Division");    
     }
     
 }
