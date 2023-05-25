@@ -15,8 +15,9 @@ public class Calculadora {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
+        CalculadoraGUI gui = new CalculadoraGUI();
         // Presentar menu al usuario
-        pintarMenu();
+        gui.pintarMenu();
         // Determinar la operación a realizar
         double res = procesarOperación();
         //Imprimir el resultado
@@ -24,14 +25,13 @@ public class Calculadora {
     }
     
     public static double procesarOperación(){
-        // Leer del usuario la opción seleccionada
-        Scanner lector = new Scanner(System.in);
-        int opcionElegida = lector.nextInt();
         
-        System.out.println("¿Cual seria el valor para el primer operando?");
-        int op1 = lector.nextInt();
-        System.out.println("¿Cual seria el valor para el segundo operando?");
-        int op2 = lector.nextInt();
+        //TODO: falta integrar la solicitud de datos al usuario
+        CalculadoraGUI gui = new CalculadoraGUI();
+        int opcionElegida = gui.leerOpcionElegida();
+        int[] operandos = gui.solicitarOperandos();
+        int op1 = operandos[0];
+        int op2 = operandos[1];
         
         double resultado = 0.0;
         
@@ -61,14 +61,5 @@ public class Calculadora {
         return resultado;
     }
     
-    public static void pintarMenu(){
-        System.out.println("Bienvenidos al programa");
-        System.out.println("SUPER CALCULADORA");
-        System.out.println("Elija una opcion:");
-        System.out.println("1. Suma");
-        System.out.println("2. Resta");
-        System.out.println("3. Multiplicacion");
-        System.out.println("4. Division");    
-    }
     
 }
