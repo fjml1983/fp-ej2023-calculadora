@@ -12,32 +12,57 @@ import java.util.Scanner;
  */
 public class CalculadoraGUI {
     public void pintarMenu(){
-        System.out.println("Bienvenidos al programa");
-        System.out.println("SUPER CALCULADORA");
-        System.out.println("Elija una opcion:");
+        System.out.println(">--------Bienvenido al programa-------<");
+        System.out.println("  __      _   _  _     _          _     ");
+        System.out.println(" (_  | | |_) |_ |_)   /   /\\  |  /  | | ");
+        System.out.println(" __) |_| |   |_ | \\   \\_ /--\\ |_ \\_ |_| ");
+        System.out.println("---------------------------------------");                                                     
+        
+        System.out.println("Las operaciones soportadas son las siguientes:");
         System.out.println("1. Suma");
         System.out.println("2. Resta");
         System.out.println("3. Multiplicacion");
         System.out.println("4. Division");    
+        System.out.println("5. Salir");    
     }
 
     public int leerOpcionElegida(){
-        // Leer del usuario la opción seleccionada
         Scanner lector = new Scanner(System.in);
+        
+        // Leer del usuario la opción seleccionada
+        System.out.print("Introduzca el numero de la operacion que desea realizar: ");
         int opcionElegida = lector.nextInt();
         
         return opcionElegida;
     }
     
-    public int[] solicitarOperandos(){
+    public double[] solicitarOperandos(){
         Scanner lector = new Scanner(System.in);
-        int[] operandos = new int[2];
-        System.out.println("¿Cual seria el valor para el primer operando?");
-        operandos[0] = lector.nextInt();
-        System.out.println("¿Cual seria el valor para el segundo operando?");
-        operandos[1] = lector.nextInt();    
+        double[] operandos = new double[2];
+        
+        System.out.print("Indique el valor para el primer operando: ");
+        operandos[0] = lector.nextDouble();
+        System.out.print("Indique el valor para el segundo operando: ");
+        operandos[1] = lector.nextDouble();    
         return operandos;
     }
 
+    public void presentarResultado(double resultado){
+        Scanner lector = new Scanner(System.in);
+        System.out.println("El resultado: " + resultado);
+        System.out.print("Desea realizar otra operacion? [S/N]");
+        String resp = lector.next();
+        if(resp.toUpperCase().equals("N")){
+            terminarPrograma();
+        }
+    }
+
+    public void terminarPrograma() {                
+        System.out.println("__________________________________");
+        System.out.println("Gracias por utilizar SUPER CALCU!");
+        System.out.println("que tenga buen dia! Adios.");
+        System.out.println("[Programa terminado]");
+        System.exit(0);
+    }
     
 }
